@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+
+void search ()
+{
+    int array [5] = {5,8,9,10,2};
+    int i, search;
+    bool found;
+    cout<<"Enter a number to search:";
+    cin>> search;
+    for (i = 0; i < 5; i++)
+    {
+        if (search == array[i])
+        {
+        found = true;
+        cout<< "Is fouded\n";
+        break;
+        }
+        else
+        {
+            found = false;
+        }
+    }
+    if (found == false)
+        {
+            cout<< "Is not found\n";
+        }
+
+
+
+}
+void insert ()
+
+        {
+            int arr[50], x, elem, pos, siz;
+
+            cout<< "Enter the size of array:\n ";
+            cin>> siz;
+            cout<< "Enter " << siz <<"Array Elements: \n";
+            for (x = 0; x < siz; x++)
+            cin>> arr[x];
+
+            cout << "Enter Element to Insert: \n";
+            cin >> elem;
+
+            cout << "At What  Position?\n";
+            cin >> pos;
+
+            for (x = siz; x > pos; x--)
+                arr[x] = arr[x-1];
+
+            arr[x] = elem;
+            siz++;
+            
+            cout << "The New Array is:\n";
+            for ( x = 0; x < siz; x++)
+            cout << arr[x] << " ";
+            
+            
+        }
+void delet ()
+{
+    int arr[5], siz = 5, i, elem, x, found = 0;
+
+    cout<< "\nEnter 5 Array Elements:\n";
+    for (i = 0; i < siz; i++)
+        cin>> arr[i];
+
+    cout<< "Enter Element to Delete:\n";
+    cin>> elem;
+
+    for (i = 0; i < siz; i++)
+    {
+        if (arr[i] == elem)
+        {
+            for (x = i; x < (siz-1); x++) 
+                arr[x] = arr[x+1];
+                
+            found++;
+            i--;
+            siz--;
+        }
+        
+    }
+    if (found == 0)
+    {cout<< "Element does not found in the Array!\n";}
+    else
+    {
+        cout<< "Element Deleted Successfully!\n";
+        for (i = 0; i < siz; i++)
+        cout<< arr[i] << " ";
+    }
+}        
+int main ()
+{
+    search();
+    insert();
+    delet();
+}
